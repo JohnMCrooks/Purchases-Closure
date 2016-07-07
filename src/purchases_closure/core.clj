@@ -9,16 +9,19 @@
 
 (defn purchases-html [purchases]
   [:html
-   [:body
-    [:a {:href "/"} "|  All  |"
-     [:a {:href "/Food"} "  Food  |"]]  ; how to create a hyperlink and specify attributes within a tag (they go in the hashmap... HINT HINT)
+   [:body {:style  "background-color: #EAE2DA;"}
+    [:a {:href "/" } "|  All  |"]
+    [:a {:href "/Food"} "  Food  |"]  ; how to create a hyperlink and specify attributes within a tag (they go in the hashmap... HINT HINT)
     [:a {:href "/Alcohol"} "  Alcohol  |"] 
     [:a {:href "/Furniture"} "  Furniture  |"] 
     [:a {:href "/Shoes"} "  Shoes  |"] 
     [:a {:href "/Toiletries"} "  Toiletries  |"]
     [:a {:href "/Jewelry"} "  Jewelry  |"] 
-   
-    [:ul {:style "list-style-type:none"}            ;creating an organized list
+    [:br
+     [:br]]
+ 
+    
+    [:ul {:style "list-style-type:none; background-color: #C5C1B1; margin:auto; align:center; box-shadow: 0px 0px 10px;"}            ;creating an organized list
      (map (fn [purchase]        
             [:li (str (get purchase "customer_id") ": " (get purchase "date") " " (get purchase "credit_card") " " (get purchase "cvv") " " (get purchase "category"))])  ;grabbing and combining just the first and last names from the person hashmap and combining them with 'str'
        purchases)]]])
